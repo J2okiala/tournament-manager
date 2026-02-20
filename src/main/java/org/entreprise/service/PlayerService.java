@@ -2,6 +2,7 @@ package org.entreprise.service;
 
 import org.entreprise.dao.PlayerDAO;
 import org.entreprise.exceptions.DuplicatePlayerException;
+import org.entreprise.exceptions.PlayerNotFoundException;
 import org.entreprise.model.Player;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -84,15 +85,15 @@ public class PlayerService {
     /**
      * @param id identifiant unique du joueur
      * @return le joueur correspondant
-     * @throws Playernotfoundexception si aucun joueur ne correspond à cet ID
+     * @throws PlayerNotFoundException si aucun joueur ne correspond à cet ID
      */
-    public Player findById(int id) throws Playernotfoundexception {
+    public Player findById(int id) throws PlayerNotFoundException {
         return players.stream()
                 .filter(p -> p.getId() == id)
                 .findFirst()
                 .orElseThrow(() -> {
                     logger.warn("Joueur introuvable avec l'ID : {}", id);
-                    return new Playernotfoundexception("Aucun joueur trouvé avec l'ID : " + id);
+                    return new PlayerNotFoundException("Aucun joueur trouvé avec l'ID : " + id);
                 });
     }
 

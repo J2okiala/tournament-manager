@@ -2,6 +2,7 @@ package org.entreprise;
 
 import org.entreprise.exceptions.DuplicatePlayerException;
 import org.entreprise.exceptions.InvalidMatchException;
+import org.entreprise.exceptions.PlayerNotFoundException;
 import org.entreprise.model.Match;
 import org.entreprise.model.Player;
 import org.entreprise.service.MatchService;
@@ -82,12 +83,12 @@ public class Main {
         System.out.println("\n┌─────────────────────────────┐");
         System.out.println("│         MENU PRINCIPAL       │");
         System.out.println("├─────────────────────────────┤");
-        System.out.println("│  1. ➕ Ajouter un joueur     │");
-        System.out.println("│  2. 👥 Afficher les joueurs  │");
-        System.out.println("│  3. ⚔️  Créer un match       │");
-        System.out.println("│  4. 📋 Afficher les matchs   │");
-        System.out.println("│  5. 📊 Statistiques          │");
-        System.out.println("│  0. 🚪 Quitter               │");
+        System.out.println("│  1.  Ajouter un joueur     │");
+        System.out.println("│  2.  Afficher les joueurs  │");
+        System.out.println("│  3.  Créer un match       │");
+        System.out.println("│  4.  Afficher les matchs   │");
+        System.out.println("│  5.  Statistiques          │");
+        System.out.println("│  0.  Quitter               │");
         System.out.println("└─────────────────────────────┘");
     }
 
@@ -168,7 +169,7 @@ public class Main {
         try {
             Match newMatch = matchService.createMatch(player1Id, player2Id, scorePlayer1, scorePlayer2);
             System.out.println("✅ Match créé : " + newMatch);
-        } catch (Playernotfoundexception e) {
+        } catch (PlayerNotFoundException e) {
             System.out.println("❌ Joueur introuvable : " + e.getMessage());
         } catch (InvalidMatchException e) {
             System.out.println("❌ Match invalide : " + e.getMessage());

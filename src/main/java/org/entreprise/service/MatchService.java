@@ -2,6 +2,7 @@ package org.entreprise.service;
 
 import org.entreprise.dao.MatchDAO;
 import org.entreprise.exceptions.InvalidMatchException;
+import org.entreprise.exceptions.PlayerNotFoundException;
 import org.entreprise.model.Match;
 import org.entreprise.model.Player;
 import org.slf4j.Logger;
@@ -59,11 +60,11 @@ public class MatchService {
      * @param scorePlayer1 score du joueur 1 (doit être >= 0)
      * @param scorePlayer2 score du joueur 2 (doit être >= 0)
      * @return le match créé
-     * @throws Playernotfoundexception si un des deux joueurs est introuvable
+     * @throws PlayerNotFoundException si un des deux joueurs est introuvable
      * @throws InvalidMatchException   si le match est invalide (joueur contre lui-même, score négatif)
      */
     public Match createMatch(int player1Id, int player2Id, int scorePlayer1, int scorePlayer2)
-            throws Playernotfoundexception, InvalidMatchException {
+            throws PlayerNotFoundException, InvalidMatchException {
 
         logger.info("Tentative de création d'un match : Joueur {} vs Joueur {}", player1Id, player2Id);
 
