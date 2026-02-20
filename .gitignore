@@ -1,0 +1,37 @@
+# ─────────────────────────────────────────────
+# Joseph_com : Fichiers compilés Java
+# ─────────────────────────────────────────────
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# ─────────────────────────────────────────────
+# Joseph_com : Dossiers IntelliJ IDEA
+# ─────────────────────────────────────────────
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# ─────────────────────────────────────────────
+# Joseph_com : Données générées par l'application
+# (les CSV et logs ne doivent pas être versionnés)
+# ─────────────────────────────────────────────
+data/
+logs/
+
+# ─────────────────────────────────────────────
+# Joseph_com : Fichiers système macOS / Windows / Linux
+# ─────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─────────────────────────────────────────────
+# Joseph_com : Variables d'environnement locales
+# ─────────────────────────────────────────────
+.env
+.env.local
